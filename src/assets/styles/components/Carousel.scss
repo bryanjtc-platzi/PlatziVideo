@@ -3,6 +3,12 @@
   padding-left: 30px;
   width: 100%;
   position: relative;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
 }
 
 .carousel__container {
