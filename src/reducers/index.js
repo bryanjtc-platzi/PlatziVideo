@@ -22,6 +22,30 @@ const reducer = (state, action) => {
         ...state,
         user: action.payload,
       };
+    case actions.registerRequest:
+      return {
+        ...state,
+        user: action.payload,
+      };
+    case actions.getVideoSource:
+      return {
+        ...state,
+        playing:
+          state.trends.find((item) => item.id === Number(action.payload)) ||
+          state.originals.find((item) => item.id === Number(action.payload)) ||
+          [],
+      };
+    case actions.getVideoSearch:
+      if (action.payload === '') return { ...state, searchResult: [] };
+
+      const listas = [...state.trends, ...state.originals];
+
+      return {
+        ...state,
+        searchResult: listas.filter((item) =>
+          item.title.toLowerCase().includes(action.payload.toLowerCase())
+        ),
+      };
     default:
       return state;
   }
