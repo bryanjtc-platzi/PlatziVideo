@@ -71,3 +71,7 @@ typings/
 # Docs Custom
 .cache/
 yarn-error.log
+
+.dccache
+
+dist/
